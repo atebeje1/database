@@ -36,5 +36,15 @@ soup = BeautifulSoup(content)
 specificData = soup.find_all('h2')
 
 # finds and prints text from chart at above url
+count = 1
+resultArray = []
 for z in specificData:
-  print(z.find(text=True)[3:])
+  result = z.find(text=True)[3:]
+  if "/" in result:
+    resultArray = result.split("/")
+    print(resultArray[0])
+    print(resultArray[1])
+    count = count + 1
+  elif count < 7:
+   count = count +1
+   print(result)
